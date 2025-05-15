@@ -52,7 +52,7 @@ const updateClientsViewScore = (game) => {
 
 const gestionCombinaison = (game) => {
   const dices = [ ...game.gameState.deck.dices ];
-  const isDefi = false;
+  const isDefi = true;
   const isSec = game.gameState.deck.rollsCounter === 2;
   
   let combinations = GameService.choices.findCombinations(dices, isDefi, isSec);
