@@ -24,7 +24,7 @@ const ALL_COMBINATIONS = [
 ];
 
 const TURN_DURATION = 60;
-const END_TURN_DURATION = 5;
+const END_TURN_DURATION = 10;
 const MAX_TOKENS_PER_PLAYER = 12;
 
 const DECK_INIT = {
@@ -302,7 +302,7 @@ const GameService = {
                     (combination.id === 'yam' && hasFiveOfAKind) ||
                     (combination.id === 'suite' && hasStraight) ||
                     (combination.id === 'moinshuit' && isLessThanEqual8) ||
-                    (combination.id === 'defi' && isDefi) ||
+                    (combination.id === 'defi' && isDefi && Math.random() < 0.05) ||
                     (combination.id === 'sec' &&
                         isSec &&
                         !hasThreeOfAKind && // Pas de brelan
