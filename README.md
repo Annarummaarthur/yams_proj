@@ -15,9 +15,9 @@
   </a>
 </p>
 
-### 1. Installation et lancement
+# 1. Installation et lancement
 
-## Lancement automatique
+# Lancement automatique
 
 Pour faciliter l’installation et le démarrage des serveurs frontend et backend, un script est fourni :
   node start-all.js
@@ -34,11 +34,11 @@ Chaque serveur sera ouvert dans une nouvelle fenêtre de terminal créée automa
 ## Lancement manuelle
 
 Si vous ne souhaitez pas utiliser le script start-all.js ou si vous rencontrez des erreurs, vous pouvez lancer les serveurs manuellement.
-# Pour le frontend Expo :
+### Pour le frontend Expo :
   1. ouvrez un terminal
   2. Lancez la commande suivante :
     |-> npx expo start
-# Pour le backend Node.js :
+### Pour le backend Node.js :
   1. ouvrez un terminal
   2. Naviguez dans le dossier backend : 
     |-> cd backend
@@ -47,7 +47,7 @@ Si vous ne souhaitez pas utiliser le script start-all.js ou si vous rencontrez d
   4. Démarrez le serveur :
     |-> npm run start
 
-### 2. Structure du projet
+# 2. Structure du projet
 
 * App.js — point d’entrée avec navigation et contexte socket
 * app/components/ — composants React Native (grille, choix, infos joueurs, decks, dés, etc.)
