@@ -1,6 +1,7 @@
 // backend/index.js
 
-const app = require('express')();
+const express = require('express');
+const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 var uniqid = require('uniqid');
@@ -52,7 +53,7 @@ const updateClientsViewScore = (game) => {
 
 const gestionCombinaison = (game) => {
   const dices = [ ...game.gameState.deck.dices ];
-  const isDefi = true;
+  const isDefi = (game.gameState.deck.rollsCounter === 1 && Math.random() < 0.10);
   const isSec = game.gameState.deck.rollsCounter === 2;
   
   let combinations = GameService.choices.findCombinations(dices, isDefi, isSec);

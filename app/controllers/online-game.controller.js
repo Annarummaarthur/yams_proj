@@ -31,7 +31,7 @@ export default function OnlineGameController({ navigation }) {
             setInQueue(data['inQueue']);
             setInGame(data['inGame']);
             setIdOpponent(data['idOpponent']);
-            setMyPlayerId(data['playerId']); // 'player:1' ou 'player:2'
+            setMyPlayerId(data['idPlayer']); // 'player:1' ou 'player:2'
         });
 
         socket.on('game.over', ({ message, finalScore }) => {
