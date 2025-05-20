@@ -46,30 +46,16 @@ export default function OnlineGameController({ navigation }) {
             setInGame(data['inGame']);
             navigation.navigate('HomeScreen');
         });
-
-        // Nettoyage à la désactivation du composant
-        return () => {
-            socket.off('queue.added');
-            socket.off('game.start');
-            socket.off('game.over');
-            socket.off('queue.left');
-        };
     }, []);
 
     const handleReplay = () => {
         setIsGameOver(false);
-        // Quitte la partie actuelle
-        socket.emit('game.leave');
-        socket.emit('queue.join');
-        setFinalScore(null);
-        setIdOpponent(null);
-        setMyPlayerId(null);
+        socket.emit('game.replay');
     };
 
     const handleQuit = () => {
         setIsGameOver(false);
-        socket.emit('game.leave'); // quitte la partie proprement
-        socket.emit('queue.leave'); // quitte la queue si en queue
+        socket.emit('queue.leave');
         navigation.navigate('HomeScreen');
     };
 
