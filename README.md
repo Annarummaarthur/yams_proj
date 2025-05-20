@@ -15,21 +15,42 @@
   </a>
 </p>
 
-This example shows how to connect and interact with socket-io backends.
+### 1. Installation et lancement
 
-## 🚀 How to use
+## Lancement automatique
 
-### Running the app
+Pour faciliter l’installation et le démarrage des serveurs frontend et backend, un script est fourni :
+  node start-all.js
 
-- Run `yarn` or `npm install`
-- Open `App.js` and change the `socketEndpoint` at the top of the file to point to your endpoint.
-- Open `app` with `yarn start` or `npm run start` to try it out.
 
-### Running the server
+Ce script va automatiquement :
+  - Installer les dépendances nécessaires (npm install)
+  - Lancer le serveur backend
+  - Lancer le serveur frontend (Expo)
 
-- `cd` into the `backend` directory and run `yarn` or `npm install`, then run `yarn start` or `npm run start`
-- Install [ngrok](https://ngrok.com/download) and run `ngrok http 3000` and copy the https url that looks something like this `https://f7333e87.ngrok.io`.
+Note importante :
+Chaque serveur sera ouvert dans une nouvelle fenêtre de terminal créée automatiquement par le script.
 
-## 📝 Notes
+## Lancement manuelle
 
-React Native provides a socket-io compatible WebSocket implementation, some people get tripped up on the https requirement so this example helps to clarify how you can get it running.
+Si vous ne souhaitez pas utiliser le script start-all.js ou si vous rencontrez des erreurs, vous pouvez lancer les serveurs manuellement.
+# Pour le frontend Expo :
+  1. ouvrez un terminal
+  2. Lancez la commande suivante :
+    |-> npx expo start
+# Pour le backend Node.js :
+  1. ouvrez un terminal
+  2. Naviguez dans le dossier backend : 
+    |-> cd backend
+  3. (Optionnel) Installez les dépendances manuellement :
+    |-> npm install
+  4. Démarrez le serveur :
+    |-> npm run start
+
+### 2. Structure du projet
+
+* App.js — point d’entrée avec navigation et contexte socket
+* app/components/ — composants React Native (grille, choix, infos joueurs, decks, dés, etc.)
+* app/contexts/socket.context.js — contexte React fournissant l’instance Socket.IO
+* app/screens/ — écrans de navigation (accueil, partie en ligne, partie vs bot)
+* backend/ — serveur Node.js avec Socket.IO gérant la logique de jeu
