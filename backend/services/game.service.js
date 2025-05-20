@@ -302,7 +302,7 @@ const GameService = {
                     (combination.id === 'yam' && hasFiveOfAKind) ||
                     (combination.id === 'suite' && hasStraight) ||
                     (combination.id === 'moinshuit' && isLessThanEqual8) ||
-                    (combination.id === 'defi' && isDefi && Math.random() < 0.10) ||
+                    (combination.id === 'defi' && isDefi && Math.random() < 0.10) || 
                     (combination.id === 'sec' &&
                         isSec &&
                         !hasThreeOfAKind && // Pas de brelan
