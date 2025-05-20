@@ -339,7 +339,7 @@ io.on('connection', socket => {
     updateClientsViewGrid(games[gameIndex]);
     updateClientsViewScore(games[gameIndex]);
   });
-
+  
   socket.on('disconnect', reason => {
     console.log(`[${socket.id}] socket disconnected - ${reason}`);
     removePlayerFromQueue(socket);
