@@ -26,7 +26,7 @@ const Board = ({ gameViewState}) => {
         </View>
       </View>
       <View style={[styles.row, { height: '10%' }]}>
-        <OpponentDeck />x
+        <OpponentDeck />
       </View>
       <View style={[styles.row, { height: '40%' }]}>
         <Grid />
