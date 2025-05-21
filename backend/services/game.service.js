@@ -102,12 +102,13 @@ const GameService = {
         
         gameState: () => {
             const game = { ...GAME_INIT };
-            game['gameState']['timer'] = TURN_DURATION;
-            game['gameState']['deck'] = { ...DECK_INIT };
-            game['gameState']['choices'] = { ...CHOICES_INIT };
-            game['gameState']['grid'] = [ ...GRID_INIT];
+            game.gameState.timer = TURN_DURATION;
+            game.gameState.deck = { ...DECK_INIT };
+            game.gameState.choices = { ...CHOICES_INIT };
+            game.gameState.grid = shuffleGridWithYamCentered(GRID_INIT);
             return game;
         },
+
 
 
         deck: () => {
