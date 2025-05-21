@@ -92,6 +92,46 @@ const GRID_INIT = [
     ]
 ];
 
+function shuffleGridWithYamCentered(grid) {
+    const flat = [];
+    let yamCell = null;
+
+    // Flatten the grid and isolate the Yam cell
+    for (let row of grid) {
+        for (let cell of row) {
+            if (cell.id === 'yam') {
+                yamCell = { ...cell };
+            } else {
+                flat.push({ ...cell });
+            }
+        }
+    }
+
+    // Shuffle the rest
+    for (let i = flat.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [flat[i], flat[j]] = [flat[j], flat[i]];
+    }
+
+    // Rebuild the 5x5 grid with Yam in the center
+    const newGrid = [];
+    let index = 0;
+    for (let i = 0; i < 5; i++) {
+        const row = [];
+        for (let j = 0; j < 5; j++) {
+            if (i === 2 && j === 2) {
+                row.push({ ...yamCell }); // place yam in center
+            } else {
+                row.push(flat[index++]);
+            }
+        }
+        newGrid.push(row);
+    }
+
+    return newGrid;
+}
+
+
 
 
 
@@ -105,7 +145,7 @@ const GameService = {
             game.gameState.timer = TURN_DURATION;
             game.gameState.deck = { ...DECK_INIT };
             game.gameState.choices = { ...CHOICES_INIT };
-            game.gameState.grid =  [ ...GRID_INIT];
+            game.gameState.grid =  shuffleGridWithYamCentered(GRID_INIT);
             return game;
         },
 
